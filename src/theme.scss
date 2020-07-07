@@ -1,0 +1,138 @@
+@import '~@angular/material/theming';
+
+@mixin theme($theme) {
+     @include angular-material-theme($theme);
+
+}
+
+.light-theme{
+    $my-app-accent:  mat-palette($mat-cyan, 400, 900, A200);
+    $alternate-primary: mat-palette($mat-indigo,900);
+    $alternate-accent:  mat-palette($mat-yellow, 400);
+    $my-app-theme:mat-light-theme($alternate-primary,$my-app-accent, $alternate-primary);
+    @include theme($my-app-theme);
+    .txt-color{
+        color: #333;
+    }
+    .border-bottom-nav-a{
+        border-bottom: 1px solid #333;
+        border-color: #333;
+        &:hover{
+            border-inline-start-style: solid;
+            border-inline-start-width: 5px;
+            color: #fff;
+            // border-color: #fff;
+            background-color: mat-color($alternate-primary);
+        }
+    }
+    .border-bottom-nav-a.active{
+        border-inline-start-style: solid;
+        border-inline-start-width: 5px;
+        color: #fff;
+        // border-color: #fff;
+        background-color: mat-color($alternate-primary);
+    }
+    input{
+        color: #333 !important;
+    }
+    .highlight{
+        background-color: rgba(0, 132, 255, 0.404);
+    
+      }
+    .mat-row:hover{
+            mat-cell:not(.mat-column-visible){
+              cursor: pointer;
+            }
+              background-color:mat-color(mat-palette($mat-blue,700)) !important;
+              box-shadow: inset 0px 0 8px 3px #0000005d;
+              *{
+                color: #fff;
+              }
+              
+    }
+    .mat-row:nth-child(even){    
+        background-color: mat-color(mat-palette($mat-blue,200)) ;
+        .mat-column-action{
+           button:hover{
+               *{
+                 color: #333 ;
+               }
+             }
+        }
+      }
+      .mat-row:nth-child(odd){    
+        background-color: mat-color(mat-palette($mat-blue,500)) ;
+        .mat-column-action{
+          button:hover{
+              *{
+                color: #333;
+              }
+            }
+       }
+      }
+        
+}
+
+.dark-theme {
+    $primary-dark:mat-palette($mat-pink,900);
+    $accent-dark:mat-palette($mat-green);
+    $warn-dark:mat-palette($mat-red);
+    $theme-dark : mat-dark-theme($primary-dark,$accent-dark,$warn-dark);
+    @include theme($theme-dark);
+    .txt-color{
+        color: #fff;
+    }
+    .border-bottom-nav-a{
+        border-bottom: 1px solid #fff;
+        border-color: #fff;
+        &:hover{
+            border-inline-start-style: solid;
+            border-inline-start-width: 5px;
+            color: #333;
+            // border-color: #333;
+            background-color: mat-color($primary-dark);
+        }
+    }
+    .border-bottom-nav-a.active{
+        border-inline-start-style: solid;
+        border-inline-start-width: 5px;
+        color: #fff;
+        // border-color: #333;
+        background-color: mat-color($primary-dark);
+    }
+    input{
+        color: #fff !important;
+    }
+    .mat-row:hover{
+        mat-cell:not(.mat-column-visible){
+          cursor: pointer;
+        }
+          background-color:mat-color(mat-palette($mat-purple,200))  !important;
+          box-shadow: inset 0px 0 8px 3px #0000005d;
+          *{
+            color: #333;
+          }
+          
+    }
+    
+    .mat-row:nth-child(even){    
+    background-color: mat-color(mat-palette($mat-purple,800));
+    .mat-column-action{
+       button:hover{
+           *{
+             color: #fff ;
+           }
+         }
+    }
+     }
+    .mat-row:nth-child(odd){    
+        background-color: mat-color(mat-palette($mat-purple,600)) ;
+        .mat-column-action{
+        button:hover{
+            *{
+                color: #fff;
+            }
+            }
+    }
+    }
+  } 
