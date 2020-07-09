@@ -10,9 +10,20 @@ export class MassageService {
   getTheme=this.$theme.asObservable();
 
   private loader =new Subject<boolean>();
-  constructor() { }
+  constructor() { 
+    let theme = localStorage.getItem('theme')
+    if(!theme){
+      localStorage.setItem('theme',this.$theme.value.toString())
+    }
+    else{
+      let val=false
+      theme == 'false' ? val=false : val=true
+      this.setTheme(val)      
+    }
+  }
   setTheme(theme: boolean) {
     this.$theme.next(theme);
+    localStorage.setItem('theme',theme.toString())
   }
 
   setLoader(loader:boolean){

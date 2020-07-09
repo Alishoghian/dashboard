@@ -11,11 +11,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
     
   }
-  input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    // -webkit-box-shadow: 0 0 0 30px none inset !important;
-    
-    background: none !important;
-}
+

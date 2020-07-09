@@ -25,6 +25,13 @@ const routes: Routes = [
         ),
   },
   {
+    path: 'dynamic',
+    loadChildren: () =>
+        import('./pages/dynamic/dynamic.module').then(
+            m => m.DynamicModule,
+        ),
+  },
+  {
     path:'',
     redirectTo:'dashboard',
     pathMatch:'full'

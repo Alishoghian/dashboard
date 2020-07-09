@@ -32,6 +32,7 @@ constructor(private massage:MassageService){}
     this.loader=true
     setTimeout(() => {
       this.$them = !this.$them
+      this.massage.setTheme(this.$them)
     }, 1700);
     setTimeout(() => {
       this.loader=false

@@ -38,7 +38,7 @@
       font-family: Poppins-Regular;
       font-size: 14px;
       line-height: 1.7;
-      color: #666666;
+      // color: #666666;
       margin: 0px;
       transition: all 0.4s;
       -webkit-transition: all 0.4s;
@@ -130,14 +130,14 @@
     font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.5;
-    color: #666666;
+    // color: #666666;
   }
   
   .txt2 {
     font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.5;
-    color: #333333;
+    // color: #333333;
     text-transform: uppercase;
   }
   
@@ -155,8 +155,8 @@
   }
   
   .container-login100 {
-    width: 100%;  
-    min-height: 100vh;
+    width: calc(100vw - 60px);  
+    height: calc(100vh - 72px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -165,7 +165,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 15px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -189,7 +188,7 @@
     display: block;
     font-family: Poppins-Bold;
     font-size: 39px;
-    color: #333333;
+    // color: #333333;
     line-height: 1.2;
     text-align: center;
   }
@@ -208,7 +207,7 @@
   .label-input100 {
     font-family: Poppins-Regular;
     font-size: 14px;
-    color: #333333;
+    // color: #333333;
     line-height: 1.5;
     padding-left: 7px;
   }
@@ -216,7 +215,7 @@
   .input100 {
     font-family: Poppins-Medium;
     font-size: 16px;
-    color: #333333;
+    // color: #333333;
     line-height: 1.2;
   
     display: block;
@@ -326,10 +325,10 @@
     width: 300%;
     height: 100%;
     background: #a64bf4;
-    // background: -webkit-linear-gradient(, #00dbde, #fc00ff, #00dbde, #fc00ff);
-    // background: -o-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
-    // background: -moz-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
-    // background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -webkit-linear-gradient(to right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -o-linear-gradient(to right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -moz-linear-gradient(to right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: linear-gradient(to right, #00dbde, #fc00ff, #00dbde, #fc00ff);
     top: 0;
     left: -100%;
   
@@ -341,7 +340,7 @@
   
   .login100-form-btn {
     font-family: Poppins-Medium;
-    font-size: 16px;
+    font-size: 18px;
     color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
@@ -368,6 +367,7 @@
       height: 50px;
       font-size: 18px;
       padding-inline-start: 1rem;
+      color: none;
     }
   }
   .wrap-login100-form-btn:hover .login100-form-bgbtn {

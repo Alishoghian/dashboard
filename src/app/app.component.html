@@ -13,7 +13,20 @@
              <a href="" class="nav-item border-bottom-nav-a txt-color"  routerLinkActive="active" [routerLink]="'/charts'"><span class="material-icons"> show_chart </span></a>
              <a href="" class="nav-item border-bottom-nav-a txt-color"  routerLinkActive="active" [routerLink]="'/3'"><span class="material-icons"> mail</span></a>
              <a href="" class="nav-item border-bottom-nav-a txt-color" routerLinkActive="active" [routerLink]="'/Login'"><span class="material-icons">person </span></a>
-             <a href="" class="nav-item border-bottom-nav-a txt-color"><span class="material-icons">pie_chart </span></a>
+             <a href="" class="nav-item border-bottom-nav-a txt-color" routerLinkActive="active" >
+              
+              <span class="material-icons">pie_chart </span>
+                <mat-card class="sub-router-card">
+                  <a href="" class="txt-color sub-router" routerLinkActive="active" [routerLink]="'/dynamic/form'">
+                    <span>Dynamic Form</span>
+                    <span class="material-icons">dynamic_form</span>
+                  </a>
+                  <a href="" class="txt-color sub-router" routerLinkActive="active" [routerLink]="'/dynamic/component'">
+                    <span>Dynamic Component</span>
+                    <span class="material-icons">view_compact</span>
+                  </a>
+                </mat-card >
+            </a>
              <a href="" class="nav-item border-bottom-nav-a txt-color"><span class="material-icons">settings</span> </a>
     </div>
    
