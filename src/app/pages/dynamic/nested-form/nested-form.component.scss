@@ -1,0 +1,42 @@
+.form-fild-cm{
+    padding-inline-end: 1rem;
+    width: calc(33.3333333% - 1rem);
+    @media(max-width: 600px){
+        padding: 0;
+        width: 100%
+    }
+}
+form.form-group{
+    width: 100%;
+}
+.flex-row{
+    width: 100%;
+    button{
+        margin-inline-end: 1rem;
+    }
+    :last-child{
+        margin:0;
+    }
+}
+.fx-col-res{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.fx-row-ch{
+    display: flex;
+    flex-direction: row;
+    @media(max-width: 600px){
+        flex-direction: column;
+        padding-top: 1rem;
+    }
+}
+.example-margin{
+    padding-inline-end: 1rem;
+
+}
+.delete-index{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

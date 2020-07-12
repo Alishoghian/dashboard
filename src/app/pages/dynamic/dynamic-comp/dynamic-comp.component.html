@@ -1,0 +1,20 @@
+<div style="padding: 8px;" >
+    <div class="mat-elevation-z5 cop-card">
+
+    
+    <div class="user-close row" *ngIf="inData.type==='closeUser'">
+        <span>{{inData.comName}}</span>
+        <button mat-mini-fab color="primary" type="button" (click)="close()"><i class="material-icons">close</i></button>
+        
+    </div>
+    <span *ngIf="inData.type==='closeUser'">user can cleso com</span>
+    <div class="timer-close" *ngIf="inData.type==='custom'">
+        <span>{{inData.comName}}</span>
+    </div>
+    <span *ngIf="inData.type==='custom'"> Destory component after &nbsp;&nbsp;{{secand}}&nbsp;:&nbsp;{{milisec}}  </span>
+    <div class="none-close" *ngIf="inData.type==='none'">
+        <span>{{inData.comName}}</span>
+    </div>
+    <span *ngIf="inData.type==='none'">No destory component<</span>
+    </div>
+</div>

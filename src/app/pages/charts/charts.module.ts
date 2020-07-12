@@ -6,6 +6,8 @@ import { GISService } from './dynamicComponents/services/GISService';
 import { LogTableComponent } from './dynamicComponents/log-table/log-table.component';
 import { MaterialSharedModule } from './material-shared.module';
 import { ColumnComponent } from './dynamicComponents/column/column.component';
+import { GaugeComponent } from './dynamicComponents/gauge/gauge.component';
+import { Gauge2Component } from './dynamicComponents/gauge2/gauge2.component';
 
 const routes:Routes=[
   {path:'',component:MainComponent}
@@ -15,7 +17,9 @@ const routes:Routes=[
   declarations: [
     MainComponent,
     LogTableComponent,
-    ColumnComponent
+    ColumnComponent,
+    GaugeComponent,
+    Gauge2Component
   ],
   imports: [
     CommonModule,

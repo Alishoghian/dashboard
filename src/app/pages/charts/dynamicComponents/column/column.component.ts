@@ -6,7 +6,6 @@ let indicators = require('highcharts/modules/exporting');
 const indi = require('highcharts/indicators/stochastic')
 indicators(Highcharts);
 stock(Highcharts)
-indi(Highcharts)
 
 @Component({
   selector: 'app-column',
@@ -15,100 +14,167 @@ indi(Highcharts)
 })
 export class ColumnComponent implements OnInit ,AfterViewInit {
   @Input()data:any
+  chart:any
   constructor() { }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(){
     var SELF=this;
-    (function ($) {
-        Highcharts.stockChart('container'+SELF.data.id, {
-          chart: {
-              type: 'column'
-          },
-          title: {
-              text: 'World\'s largest cities per 2017'
-          },
-          subtitle: {
-              text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
-          },
-          xAxis: {
-              type: 'category',
-              labels: {
-                  rotation: -45,
-                  style: {
-                      fontSize: '13px',
-                      fontFamily: 'Verdana, sans-serif'
-                  }
-              }
-          },
-          yAxis: {
-              min: 0,
-              title: {
-                  text: 'Population (millions)'
-              }
-          },
-          legend: {
-              enabled: false
-          },
-          tooltip: {
-              pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
-          },
-          series: [{
-              name: 'Population',
-              data: [
-                  ['Shanghai', 24.2],
-                  ['Beijing', 20.8],
-                  ['Karachi', 14.9],
-                  ['Shenzhen', 13.7],
-                  ['Guangzhou', 13.1],
-                  ['Istanbul', 12.7],
-                  ['Mumbai', 12.4],
-                  ['Moscow', 12.2],
-                  ['São Paulo', 12.0],
-                  ['Delhi', 11.7],
-                  ['Kinshasa', 11.5],
-                  ['Tianjin', 11.2],
-                  ['Lahore', 11.1],
-                  ['Jakarta', 10.6],
-                  ['Dongguan', 10.6],
-                  ['Lagos', 10.6],
-                  ['Bengaluru', 10.3],
-                  ['Seoul', 9.8],
-                  ['Foshan', 9.3],
-                  ['Tokyo', 9.3]
-              ],
-              dataLabels: {
-                  enabled: true,
-                  rotation: -90,
-                  color: '#FFFFFF',
-                  align: 'right',
-                  format: '{point.y:.1f}', // one decimal
-                  y: 10, // 10 pixels down from the top
-                  style: {
-                      fontSize: '13px',
-                      fontFamily: 'Verdana, sans-serif'
-                  }
-              }
-          }],
-            responsive: {
-              rules: [{
-                  condition: {
-                      maxWidth: 500,
-                      // minWidth:500
-                  },
-                  chartOptions: {
-                      subtitle: {
-                          text: null
+    let timer=setInterval(() => {
+            try{
+              this.chart = Highcharts.chart('container_'+this.data.id, {
+                chart: {
+                    type: 'column',
+                   events: {
+                      load: function(){
+                        SELF.redrawColumns(this);
                       },
-                      navigator: {
-                          enabled: true
-                      }
+                      redraw: function(){
+                        SELF.redrawColumns(this);
+                      },
+                      addSeries:function(){
+                        SELF.redrawColumns(this);
+                      },
                   }
-              }]
-          }
-        });
-    })(jQuery);
-  }
+                },
+                xAxis: {
+                    categories: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{ 
+                    name: 'l1',
+                    data: [15, 7, 5, 4, 17, 9],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: -90,
+                        color: '#FFFFFF',
+                        align: 'right',
+                        format: '{point.y:.1f}', // one decimal
+                        y: 10, // 10 pixels down from the top
+                        style: {
+                            fontSize: '11px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                }, {
+                    name: 'l2',
+                    data: [6, 9, 11, 12, 10.5, 20],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: -90,
+                        color: '#FFFFFF',
+                        align: 'right',
+                        format: '{point.y:.1f}', // one decimal
+                        y: 10, // 10 pixels down from the top
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                }, {
+                    name: 'l3',
+                    data: [4, 6, 14, 7.3, 19, 13.2],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: -90,
+                        color: '#FFFFFF',
+                        align: 'right',
+                        format: '{point.y:.1f}', // one decimal
+                        y: 10, // 10 pixels down from the top
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                }],
+                responsive: {
+                  rules: [{
+                      condition: {
+                          maxWidth: 500
+                      },
+                      // Make the labels less space demanding on mobile
+                      chartOptions: {
+                          xAxis: {
+                              labels: {
+                                  formatter: function () {
+                                      return this.value.charAt(0);
+                                  }
+                              }
+                          },
+                          yAxis: {
+                              labels: {
+                                  align: 'left',
+                                  x: 0,
+                                  y: -2
+                              },
+                              title: {
+                                  text: ''
+                              }
+                          }
+                      }
+                  }]
+              }
+            })
+        }
+            
+            catch(e){
+              console.log(e);
+              
+            }
+          
+          
+        
+    if(this.chart){
+        window.clearInterval(timer)
+    }
+        
+    }, 50);
+  
+}
+redrawColumns(chart){
+    var SELF=this
+    var $ =jQuery  
+    $(chart.series[0].data).each(function(i,e){
+        
+      if (e.y <= 9 ){        
+          e.graphic.attr({fill:'#55BF3B'});
+      }
+      else if (e.y > 10  &&  e.y <= 15){
+          e.graphic.attr({fill: '#DF5353'});
+      }
+      else if(e.y > 15){
+        e.graphic.attr({fill:'#DDDF0D'});
+      }
+
+  }); 
+  $(chart.series[2].data).each(function(i,e){
+        
+    if (e.y <= 9 ){        
+        e.graphic.attr({fill:'#55BF3B'});
+    }
+    else if (e.y > 10  &&  e.y <= 15){
+        e.graphic.attr({fill: '#DF5353'});
+    }
+    else if(e.y > 15){
+      e.graphic.attr({fill:'#DDDF0D'});
+    }
+
+}); $(chart.series[1].data).each(function(i,e){
+        
+    if (e.y <= 9 ){        
+        e.graphic.attr({fill:'#55BF3B'});
+    }
+    else if (e.y > 10  &&  e.y <= 15){
+        e.graphic.attr({fill: '#DF5353'});
+    }
+    else if(e.y > 15){
+      e.graphic.attr({fill:'#DDDF0D'});
+    }
+
+});
+}
 
 }

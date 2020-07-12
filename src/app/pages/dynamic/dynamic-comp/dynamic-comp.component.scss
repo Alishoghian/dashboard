@@ -1,0 +1,13 @@
+.cop-card{
+    min-width: 330px;
+    min-height: 330px;
+    max-width: 330px;
+    display: flex;
+    flex-direction: column;
+}
+.row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

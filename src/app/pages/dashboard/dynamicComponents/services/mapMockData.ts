@@ -54,7 +54,7 @@ export const MAP_DATA:MapModel[]=[
       },
       {
         MACID:"asxzrt24",
-        id:"er3425ew",
+        id:"er3425ew2",
         name:'azari',
          latlng:[35.66552502595731,51.34958267211915],
          address:'',
@@ -105,7 +105,7 @@ export const MAP_DATA:MapModel[]=[
       },
       {
         MACID:"asxzrt25",
-        id:"er3425ew",
+        id:"er3425ew1",
         name:'chitgar', 
         latlng:[35.728468014744024,51.21173858642579],
         address:'',
@@ -123,7 +123,7 @@ export const MAP_DATA:MapModel[]=[
       },
       {
         MACID:"asxzrt26",
-        id:"er3425ew",
+        id:"er3425ew6",
         name:'tabiat', 
         latlng:[35.75347805569574,51.38646841049195],
         address:'',
@@ -141,7 +141,7 @@ export const MAP_DATA:MapModel[]=[
       },
       {
         MACID:"asxzrt27",
-        id:"er3425ew",
+        id:"er3425ew7",
         name:'eram', 
         latlng:[35.72129098165948,51.29207611083985],
         address:'',

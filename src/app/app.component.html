@@ -1,7 +1,7 @@
 <div  [ngClass]="$them ? 'dark-theme' : 'light-theme'" class="view" > 
   <mat-toolbar color="primary" style="min-height: 55px;">  
     <mat-toolbar-row class="flex-row-center-between" style="height: 55px;">
-      <span>Third Line</span>
+      <span>Sample angular app</span>
       <app-svg style="width: 30px; height:30px; cursor: pointer;" [id]="$them ? 'moon':'sun'" (click)="changeTheme()"></app-svg>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -9,25 +9,25 @@
   <mat-sidenav style="overflow: hidden;" color="primary" #sidenav opened="true" mode="side" position="start">
 
     <div class="mini-panel">
-             <a href="" class="nav-item border-bottom-nav-a  txt-color" routerLinkActive="active" [routerLink]="'/dashboard'"><span class="material-icons"> dashboard </span></a>
-             <a href="" class="nav-item border-bottom-nav-a txt-color"  routerLinkActive="active" [routerLink]="'/charts'"><span class="material-icons"> show_chart </span></a>
-             <a href="" class="nav-item border-bottom-nav-a txt-color"  routerLinkActive="active" [routerLink]="'/3'"><span class="material-icons"> mail</span></a>
-             <a href="" class="nav-item border-bottom-nav-a txt-color" routerLinkActive="active" [routerLink]="'/Login'"><span class="material-icons">person </span></a>
-             <a href="" class="nav-item border-bottom-nav-a txt-color" routerLinkActive="active" >
+             <a  class="nav-item border-bottom-nav-a  txt-color" routerLinkActive="active" [routerLink]="'/dashboard'"><span class="material-icons"> dashboard </span></a>
+             <a  class="nav-item border-bottom-nav-a txt-color"  routerLinkActive="active" [routerLink]="'/charts'"><span class="material-icons"> show_chart </span></a>
+             <a  class="nav-item border-bottom-nav-a txt-color"  routerLinkActive="active" [routerLink]="'/3'"><span class="material-icons"> mail</span></a>
+             <a  class="nav-item border-bottom-nav-a txt-color" routerLinkActive="active" [routerLink]="'/Login'"><span class="material-icons">person </span></a>
+             <a  class="nav-item border-bottom-nav-a txt-color" routerLinkActive="active" >
               
               <span class="material-icons">pie_chart </span>
                 <mat-card class="sub-router-card">
-                  <a href="" class="txt-color sub-router" routerLinkActive="active" [routerLink]="'/dynamic/form'">
+                  <a class="txt-color sub-router" routerLinkActive="active" [routerLink]="'/dynamic/form'">
                     <span>Dynamic Form</span>
                     <span class="material-icons">dynamic_form</span>
                   </a>
-                  <a href="" class="txt-color sub-router" routerLinkActive="active" [routerLink]="'/dynamic/component'">
+                  <a class="txt-color sub-router" routerLinkActive="active" [routerLink]="'/dynamic/component'">
                     <span>Dynamic Component</span>
                     <span class="material-icons">view_compact</span>
                   </a>
                 </mat-card >
             </a>
-             <a href="" class="nav-item border-bottom-nav-a txt-color"><span class="material-icons">settings</span> </a>
+             <a  class="nav-item border-bottom-nav-a txt-color"><span class="material-icons">settings</span> </a>
     </div>
    
   

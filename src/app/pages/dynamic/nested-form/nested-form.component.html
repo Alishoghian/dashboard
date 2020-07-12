@@ -1,1 +1,52 @@
-<p>nested-form works!</p>
+
+<form [formGroup]="dForm" (ngSubmit)="logForm()" class="form-group">
+    <div class="flex-row">    
+    <button mat-mini-fab color="primary" type="button" (click)="addForm()"><i class="material-icons">add</i></button>
+    <button mat-mini-fab color="warn" type="button" (click)="reset()"><i class="material-icons">clear</i></button>
+    <button mat-mini-fab color="accent" type="submit" ><i class="material-icons">save</i></button>
+</div>
+<ng-container *ngFor="let formItem of getFormControlArray(); let i = index">
+    <div [formGroup]="formItem" style="width: 100%;">
+        <div class="delete-index">
+             <button mat-icon-button  color="primary" type="button" (click)="deleteIndex(i)" ><i class="material-icons">delete_forever</i></button>
+        </div>
+   
+        <div class="fx-col-res">
+            <div class="fx-row-res">
+                <mat-form-field  class="form-fild-cm" >
+                    <mat-label>name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field >
+                <mat-form-field class="form-fild-cm" >
+                    <mat-label>family</mat-label>
+                    <input matInput formControlName="family">
+                </mat-form-field>
+                <mat-form-field class="form-fild-cm" >
+                    <mat-label>age</mat-label>
+                    <input matInput formControlName="age">
+                </mat-form-field>
+            </div>
+            
+            <div class="fx-row-res">
+                <span class="lable">select gender :&nbsp;</span>
+                <mat-radio-group formControlName="gender">
+                    <mat-radio-button class="example-margin" value="mail">mail</mat-radio-button>
+                    <mat-radio-button class="example-margin" value="female">femail</mat-radio-button>
+                </mat-radio-group>
+                <div class="fx-row-ch">
+                    <span class="lable">select specialtys :&nbsp;</span>
+                    <mat-checkbox class="example-margin" formControlName="webDev">Web developer</mat-checkbox>
+                    <mat-checkbox class="example-margin" formControlName="mobileDev">Mobile developer</mat-checkbox>
+                    <mat-checkbox class="example-margin" formControlName="softwareDev">Software developer</mat-checkbox>
+                    <mat-checkbox class="example-margin" formControlName="networkSec">Network security</mat-checkbox>
+                </div>
+            </div>
+            
+            <mat-form-field  >
+                <mat-label>Description</mat-label>
+                <textarea rows="5" matInput formControlName="des"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</ng-container>
+</form>

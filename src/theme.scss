@@ -25,15 +25,12 @@
     select:-webkit-autofill:focus {
       -webkit-box-shadow: 0 0 0px 30px white  inset !important;
     }
-    
     .sub-router{
       border-bottom: 1px solid #333;
-      :hover{
+      
+      &:hover{
         color: #fff;
         background-color: mat-color($alternate-primary);
-      }
-      :last-child{
-        border-bottom: none;
       }
     }
     .sub-router.active{
@@ -68,7 +65,7 @@
         background-color: rgba(0, 132, 255, 0.404);
     
       }
-    .mat-row:hover{
+    .mat-row:hover,.highlight{
             mat-cell:not(.mat-column-visible){
               cursor: pointer;
             }
@@ -161,7 +158,7 @@
     input{
         color: #fff !important;
     }
-    .mat-row:hover{
+    .mat-row:hover,.highlight{
         mat-cell:not(.mat-column-visible){
           cursor: pointer;
         }

@@ -85,36 +85,37 @@ export class SimpleMapComponent implements OnInit,AfterViewInit,OnDestroy {
 //   )
   
 // }
-// listenMapMassage(){
-//   this.sub.add(
-//     this.massage.getSelectNode().subscribe(
-//       (data:MapModel)=>{
-//         this.map.flyTo(data.latlng,14)
-//         this.map.eachLayer(element => {
-//           if(element.options.id == data.MACID){
-//             element.openPopup()            
-//           }         
-//         });
+listenMapMassage(){
+  // this.sub.add(
+  //   this.massage.getSelectNode().subscribe(
+  //     (data:MapModel)=>{
+  //       this.map.flyTo(data.latlng,14)
+  //       this.map.eachLayer(element => {
+  //         if(element.options.id == data.MACID){
+  //           element.openPopup()            
+  //         }         
+  //       });
         
-//       }
-//     )
-//   )
-//   this.sub.add(
-//     this.GISServic.getFlyToStation().subscribe(
-//       (data:MapModel)=>{
-//         this.map.flyTo(data.latlng,14)
-//         this.map.eachLayer(element => {
-//           if(element.options.id == data.MACID){
-//             element.openPopup()            
-//           }         
-//         });
-//       })
-//   )
-// }
+  //     }
+  //   )
+  // )
+  this.sub.add(
+    this.GISServic.getFlyToStation().subscribe(
+      (data:MapModel)=>{
+        this.map.flyTo(data.latlng,14)
+        this.map.eachLayer(element => {
+          if(element.options.id == data.MACID){
+            element.openPopup()            
+          }         
+        });
+      })
+  )
+}
 
   ngOnInit(): void {
     // this.translateData()
     // this.getItemResize()
+    this.listenMapMassage()
     this.mapData = this.GISServic.getMapData()
   }
   ngAfterViewInit(){

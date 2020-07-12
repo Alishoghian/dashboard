@@ -171,9 +171,12 @@
   }
   
   .wrap-login100 {
-    width: 500px;
+    width: 380px;
     border-radius: 10px;
     overflow: hidden;
+    @media (max-width:500px){
+      width: 100%;
+    }
   }
   
   
@@ -473,6 +476,7 @@
       padding-right: 15px;
     }
   } 
+  .p-32{padding: 32px;}
 .p-t-8 {padding-top: 8px;}
 .p-t-155 {padding-top: 155px;}
 .p-b-17 {padding-bottom: 17px;}
@@ -483,7 +487,7 @@
 .p-l-55{padding-left: 55px;} 
 .p-r-55{padding-right: 55px;} 
 .p-t-65{padding-top: 65px;} 
-.p-b-54{padding-bottom: 54px;}
+.p-b-54{padding-bottom: 34px;}
 .p-b-49{padding-bottom: 49px;}
 .m-b-23{padding-bottom: 23px;}
 

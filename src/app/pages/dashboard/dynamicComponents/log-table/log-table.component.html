@@ -53,19 +53,9 @@
             </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="visible">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> visible </mat-header-cell>
-            <mat-cell *matCellDef="let row" > 
-                <button mat-icon-button (click)="row.visible=!row.visible;changeVisibale(row)">
-                    <mat-icon>
-                        {{row.visible  ? 'visibility' :'visibility_off' }}
-                    </mat-icon>
-                </button>
-            </mat-cell>
-          </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="highlight(row)"    [ngClass]="{'highlight': selectedRowIndex === row.id}">
           </mat-row>
         </mat-table>
       <!-- <div class="no-results" [style.display]="dataSource.data.length == 0 ? '' : 'none'">

@@ -43,8 +43,7 @@ export class LogTableComponent implements OnInit, AfterViewInit {
 		'lat',
 		'lng',
 		'title',
-		'address',
-		'visible',];
+		'address',];
 	  dataSource: MatTableDataSource<MapModel> = new MatTableDataSource([]);
 	  @ViewChild(MatPaginator) paginator: MatPaginator;
 	  @ViewChild(MatSort) sort: MatSort
@@ -81,7 +80,8 @@ export class LogTableComponent implements OnInit, AfterViewInit {
 	selectedRowIndex: string = "";
 	
 	highlight(row){ 
-		this.selectedRowIndex = row.name;
+		this.selectedRowIndex = row.id;
+		this.dataService.setFlyToStation(row)
 	} 
 	
 	  public loadData() {

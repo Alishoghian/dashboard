@@ -1,1 +1,28 @@
-<p>dynamic-com works!</p>
+
+<div class="fx-row-res">
+    <div class="form-body">
+    <mat-form-field  class="form-fild-cm" >
+        <mat-label>name</mat-label>
+        <input matInput  [(ngModel)]="data.comName">
+        <i class="material-icons error" *ngIf="error.name" matSuffix>error</i>
+    </mat-form-field >
+    <div class="fx-row-res">
+        <span class="lable">destroy type :&nbsp;</span>
+        <mat-radio-group  [(ngModel)]="data.type">
+            <mat-radio-button class="example-margin" value="closeUser">User close</mat-radio-button>
+            <mat-radio-button class="example-margin" value="none">No destroy</mat-radio-button>
+            <mat-radio-button class="example-margin" value="custom">After the desired time  destroy</mat-radio-button>
+        </mat-radio-group>
+      <i class="material-icons error" *ngIf="error.type" matSuffix>error</i>
+    </div>
+    <mat-form-field class="form-fild-cm" *ngIf="data.type == 'custom'" >
+        <mat-label>seconds</mat-label>
+        <input matInput  type="number" [(ngModel)]="data.timer">
+    </mat-form-field>
+    </div>
+    <button style="max-height: 36px;"  mat-raised-button  color="primary" type="button" (click)="add()">add &nbsp;<i class="material-icons">add</i></button>
+</div>
+<div class="fx-row-res">
+   <div   #container></div> 
+</div>
+

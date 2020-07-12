@@ -15,11 +15,6 @@ export interface Tclass{
 	start_date:string;
 	salary:string;
 }
-// import * as $ from 'src/assets/node_modules/jquery'
-// import * as dt from 'src/assets/node_modules/datatables.net-dt'
-// var $  = require( 'jquery' );
-// declare var $:any
-// var dt = require( 'datatables.net-dt' )( window, $ );
 @Component({
   selector: 'app-tbl',
   templateUrl: './log-table.component.html',
@@ -81,14 +76,13 @@ export class LogTableComponent implements OnInit, AfterViewInit {
 	selectedRowIndex: string = "";
 	
 	highlight(row){ 
-		this.selectedRowIndex = row.name;
+		this.selectedRowIndex = row.id;
+		this.dataService.setFlyToStation(row)
 	} 
 	
 	  public loadData() {
 		 this.dataSource = new MatTableDataSource(this.dataService.getMapData())
 		 console.log(this.dataService.getMapData());
-		 
-		  	
 	  }
 	  changeVisibale(row){
 

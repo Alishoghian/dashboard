@@ -1,0 +1,17 @@
+.fx-row-res{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.form-fild-cm,.example-margin{
+    padding-inline-end: 1rem;
+}
+.form-body{
+    width: 80%;
+    padding-inline-end: 1rem;
+    display: flex;
+    align-items: center;
+}
+.error{
+    color: red;
+}
