@@ -5,6 +5,7 @@
     <button mat-mini-fab color="warn" type="button" (click)="reset()"><i class="material-icons">clear</i></button>
     <button mat-mini-fab color="accent" type="submit" ><i class="material-icons">save</i></button>
 </div>
+<div style="padding: 1rem 0;">{{value | json}}</div>
 <ng-container *ngFor="let formItem of getFormControlArray(); let i = index">
     <div [formGroup]="formItem" style="width: 100%;">
         <div class="delete-index">

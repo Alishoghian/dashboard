@@ -23,6 +23,7 @@
     select:-webkit-autofill,
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
+      color: #333 !important;
       -webkit-box-shadow: 0 0 0px 30px white  inset !important;
     }
     .sub-router{
@@ -108,10 +109,8 @@
     .txt-color{
         color: #fff;
     }
-    input,
-    textarea,
-    select{
-      color: #fff;
+    input{
+      color: #fff !important;
     }
     input:-webkit-autofill,
     input:-webkit-autofill:hover, 
@@ -122,6 +121,7 @@
     select:-webkit-autofill,
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
+      color: #fff !important;
       -webkit-box-shadow: 0 0 0px 30px #424242  inset !important; 
     }
     .sub-router{

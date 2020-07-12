@@ -82,7 +82,6 @@ export class LogTableComponent implements OnInit, AfterViewInit {
 	
 	  public loadData() {
 		 this.dataSource = new MatTableDataSource(this.dataService.getMapData())
-		 console.log(this.dataService.getMapData());
 	  }
 	  changeVisibale(row){
 

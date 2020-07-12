@@ -11,22 +11,26 @@ export class DynamicCompComponent implements OnInit {
  @Input() data:any
   inData:any;
   secand:number=0
-  milisec:number=0
+  milisec:number=1000
   constructor(
     private compserice:CompService
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data);
     this.inData = Object.assign({},this.data)
+    let secand = this.inData.timer
+    let milisec=1000
+    this.secand = secand
     if(this.inData.type === 'custom'){
       let timer = setInterval(()=>{
-        this.milisec += 50
-        if(this.milisec == 1000){
-          this.secand +=1
-          this.milisec=0
+        milisec -= 50
+        this.milisec = milisec
+        if(this.milisec == 0){
+          secand -=1
+          this.secand = secand
+          milisec=1000
         }
-        if(this.data.timer == this.secand){
+        if( secand == 0 && this.data.id == this.inData.id){
           window.clearInterval(timer)
           this.compserice.setCompID(this.inData.id)
         }

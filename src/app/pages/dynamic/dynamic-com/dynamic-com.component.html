@@ -23,6 +23,6 @@
     <button style="max-height: 36px;"  mat-raised-button  color="primary" type="button" (click)="add()">add &nbsp;<i class="material-icons">add</i></button>
 </div>
 <div class="fx-row-res">
-   <div   #container></div> 
+   <div  *ngFor="let item of comps" [attr.cid]="item.id" #container></div>
 </div>
 

@@ -1,30 +1,23 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('./assets/images/bg-01.jpg');">
         <mat-card class="wrap-login100 p-32">
-            <form class="login100-form validate-form" autocomplete="off">
+            <form class="login100-form" autocomplete="off">
                 <span class="login100-form-title p-b-49">
                     Login
                 </span>
-
-                <div class="wrap-input100 validate-input" data-validate = "Username is reauired">
-                    <span class="label-input100">Username</span>
-                    <label for="username" class="form-contorl">
-                        <i class="material-icons">person</i>
-                        <input type="text" name="username" id="username" autocomplete="off">
-                    </label>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <span class="label-input100">Password</span>
-                    <label for="password" class="form-contorl">
-                        <i class="material-icons">vpn_key</i>
-                        <input type="password" name="username" id="password" autocomplete="off">
-                    </label>
-                    
-                </div>
+                <mat-form-field style="width: 100%;" appearance="legacy">
+                <mat-label>username</mat-label>
+                <input matInput placeholder="username" autocomplete="off">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+              <mat-form-field style="width: 100%;" appearance="legacy">
+                <mat-label>password</mat-label>
+                <mat-icon matSuffix>vpn_key</mat-icon>
+                <input matInput placeholder="password" type="password" autocomplete="off">
+              </mat-form-field>
                 
                 <div class="text-right txt1 p-t-8 p-b-31">
-                    <a href="#" class="txt1" style="text-decoration: none;">
+                    <a href="#" class="txt1" style="text-decoration: none; color:#777;">
                         Forgot password?
                     </a>
                 </div>

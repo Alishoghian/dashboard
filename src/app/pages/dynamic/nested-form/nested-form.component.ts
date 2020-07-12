@@ -9,6 +9,7 @@ import { FormControl, FormGroup, FormBuilder, FormArray, Validators } from '@ang
 export class NestedFormComponent implements OnInit {
 
   dForm:FormGroup
+  value:any="show data after submit"
   constructor(
     private fb:FormBuilder
   ) { }
@@ -19,7 +20,7 @@ export class NestedFormComponent implements OnInit {
     })
   }
   logForm(){
-    console.log(this.dForm.value);
+    this.value=this.dForm.value
     
   }
   getFormControlArray(){
@@ -27,6 +28,7 @@ export class NestedFormComponent implements OnInit {
      return item.controls
   }
   addForm(){
+    this.value="show data after submit"
     let cr = this.dForm.controls['formG'] as FormArray
     let inputLength = cr.length
     let pushInput: FormGroup = this.fb.group({
@@ -43,10 +45,12 @@ export class NestedFormComponent implements OnInit {
     cr.insert(inputLength, pushInput)
   }
   deleteIndex(i:number){
+    this.value="show data after submit"
     let cr = this.dForm.controls['formG'] as FormArray
     cr.removeAt(i)
   }
   reset(){
+    this.value="show data after submit"
     let cr = this.dForm.controls['formG'] as FormArray
     let len = cr.length
     let timer = setInterval(()=>{

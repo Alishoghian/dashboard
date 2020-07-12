@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/core';
 
 const Highcharts = require('highcharts/highcharts')
 let indicatorsm = require('highcharts/highcharts-more');
@@ -10,16 +10,27 @@ solidGauge(Highcharts);
   templateUrl: './gauge2.component.html',
   styleUrls: ['./gauge2.component.scss']
 })
-export class Gauge2Component implements OnInit,AfterViewInit {
+export class Gauge2Component implements OnInit,AfterViewInit,OnDestroy {
   @Input()data:any
  chart:any
+ interval:any
   constructor() { }
-
+ ngOnDestroy(){
+     window.clearInterval(this.interval)
+ }
   ngOnInit(): void {
   }
   ngAfterViewInit():void{
-    this.creatChart();
-    setInterval( ()=> {
+    var timer =setInterval(()=>{
+        let el = document.getElementById('container_speed'+this.data.id)
+        if(el){
+            setTimeout(() => {
+                window.clearInterval(timer)
+                this.addChart(el)
+            }, 50);
+        }
+    },50)
+    this.interval= setInterval( ()=> {
       var point = this.chart.series[0].points[0],
           newVal,
           inc = Math.round((Math.random() - 0.5) * 20);
@@ -34,8 +45,8 @@ export class Gauge2Component implements OnInit,AfterViewInit {
   }, 3000);
 
   }
-  creatChart(){
-   this.chart = Highcharts.chart('container_speed'+this.data.id, {
+  addChart(el:HTMLElement){
+   this.chart = Highcharts.chart(el, {
 
       chart: {
           type: 'gauge',

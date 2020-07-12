@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BoardComponent } from './board/board.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 const router:Routes=[ 
@@ -20,7 +22,10 @@ const router:Routes=[
   imports: [
     CommonModule,
     RouterModule.forChild(router),
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class LoginModule { }

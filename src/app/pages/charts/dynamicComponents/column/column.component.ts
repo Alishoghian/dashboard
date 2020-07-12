@@ -20,119 +20,122 @@ export class ColumnComponent implements OnInit ,AfterViewInit {
   ngOnInit(): void {
   }
   ngAfterViewInit(){
-    var SELF=this;
-    let timer=setInterval(() => {
-            try{
-              this.chart = Highcharts.chart('container_'+this.data.id, {
-                chart: {
-                    type: 'column',
-                   events: {
-                      load: function(){
-                        SELF.redrawColumns(this);
-                      },
-                      redraw: function(){
-                        SELF.redrawColumns(this);
-                      },
-                      addSeries:function(){
-                        SELF.redrawColumns(this);
-                      },
-                  }
-                },
-                xAxis: {
-                    categories: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']
-                },
-                credits: {
-                    enabled: false
-                },
-                series: [{ 
-                    name: 'l1',
-                    data: [15, 7, 5, 4, 17, 9],
-                    dataLabels: {
-                        enabled: true,
-                        rotation: -90,
-                        color: '#FFFFFF',
-                        align: 'right',
-                        format: '{point.y:.1f}', // one decimal
-                        y: 10, // 10 pixels down from the top
-                        style: {
-                            fontSize: '11px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
-                    }
-                }, {
-                    name: 'l2',
-                    data: [6, 9, 11, 12, 10.5, 20],
-                    dataLabels: {
-                        enabled: true,
-                        rotation: -90,
-                        color: '#FFFFFF',
-                        align: 'right',
-                        format: '{point.y:.1f}', // one decimal
-                        y: 10, // 10 pixels down from the top
-                        style: {
-                            fontSize: '13px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
-                    }
-                }, {
-                    name: 'l3',
-                    data: [4, 6, 14, 7.3, 19, 13.2],
-                    dataLabels: {
-                        enabled: true,
-                        rotation: -90,
-                        color: '#FFFFFF',
-                        align: 'right',
-                        format: '{point.y:.1f}', // one decimal
-                        y: 10, // 10 pixels down from the top
-                        style: {
-                            fontSize: '13px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
-                    }
-                }],
-                responsive: {
-                  rules: [{
-                      condition: {
-                          maxWidth: 500
-                      },
-                      // Make the labels less space demanding on mobile
-                      chartOptions: {
-                          xAxis: {
-                              labels: {
-                                  formatter: function () {
-                                      return this.value.charAt(0);
-                                  }
-                              }
-                          },
-                          yAxis: {
-                              labels: {
-                                  align: 'left',
-                                  x: 0,
-                                  y: -2
-                              },
-                              title: {
-                                  text: ''
-                              }
-                          }
-                      }
-                  }]
-              }
-            })
-        }
-            
-            catch(e){
-              console.log(e);
-              
-            }
-          
-          
-        
-    if(this.chart){
-        window.clearInterval(timer)
+      
+   var timer =setInterval(()=>{
+    let el = document.getElementById('container_'+this.data.id)
+    if(el){
+        setTimeout(() => {
+            window.clearInterval(timer)
+            this.addChart(el)
+        }, 50);
     }
-        
-    }, 50);
+   },50)
   
+}
+addChart(el:HTMLElement){
+    var SELF=this;
+    try{
+        this.chart = Highcharts.chart(el, {
+          chart: {
+              type: 'column',
+             events: {
+                load: function(){
+                  SELF.redrawColumns(this);
+                },
+                redraw: function(){
+                  SELF.redrawColumns(this);
+                },
+                addSeries:function(){
+                  SELF.redrawColumns(this);
+                },
+            }
+          },
+          xAxis: {
+              categories: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']
+          },
+          credits: {
+              enabled: false
+          },
+          series: [{ 
+              name: 'l1',
+              data: [15, 7, 5, 4, 17, 9],
+              dataLabels: {
+                  enabled: true,
+                  rotation: -90,
+                  color: '#FFFFFF',
+                  align: 'right',
+                  format: '{point.y:.1f}', // one decimal
+                  y: 10, // 10 pixels down from the top
+                  style: {
+                      fontSize: '11px',
+                      fontFamily: 'Verdana, sans-serif'
+                  }
+              }
+          }, {
+              name: 'l2',
+              data: [6, 9, 11, 12, 10.5, 20],
+              dataLabels: {
+                  enabled: true,
+                  rotation: -90,
+                  color: '#FFFFFF',
+                  align: 'right',
+                  format: '{point.y:.1f}', // one decimal
+                  y: 10, // 10 pixels down from the top
+                  style: {
+                      fontSize: '13px',
+                      fontFamily: 'Verdana, sans-serif'
+                  }
+              }
+          }, {
+              name: 'l3',
+              data: [4, 6, 14, 7.3, 19, 13.2],
+              dataLabels: {
+                  enabled: true,
+                  rotation: -90,
+                  color: '#FFFFFF',
+                  align: 'right',
+                  format: '{point.y:.1f}', // one decimal
+                  y: 10, // 10 pixels down from the top
+                  style: {
+                      fontSize: '13px',
+                      fontFamily: 'Verdana, sans-serif'
+                  }
+              }
+          }],
+          responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                // Make the labels less space demanding on mobile
+                chartOptions: {
+                    xAxis: {
+                        labels: {
+                            formatter: function () {
+                                return this.value.charAt(0);
+                            }
+                        }
+                    },
+                    yAxis: {
+                        labels: {
+                            align: 'left',
+                            x: 0,
+                            y: -2
+                        },
+                        title: {
+                            text: ''
+                        }
+                    }
+                }
+            }]
+        }
+      })
+  }
+      
+      catch(e){
+        console.log(e);
+        
+      }
 }
 redrawColumns(chart){
     var SELF=this
