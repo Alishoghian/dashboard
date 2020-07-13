@@ -47,22 +47,22 @@ ngOnDestroy():void{
    var timer =setInterval(()=>{
     let el = document.getElementById('container'+this.data.id)
     if(el){
-        setTimeout(() => {
             window.clearInterval(timer)
+        setTimeout(() => {
             this.addChart(el)
             
            setTimeout(() => {
-                 var series = this.chart.series[0];
             this.interval=setInterval( ()=> {
+                 var series = this.chart?.series[0];
                 var x = (new Date()).getTime(), // current time
                     y = Math.round(Math.random() * 100);
                 series.addPoint([x , y]);
             }, 2250);
                
-           }, 50);
+           }, 150);
         }, 50);
     }
-   },50)
+   },80)
     
   }
   addChart(el:HTMLElement){
@@ -151,26 +151,6 @@ ngOnDestroy():void{
                           condition: {
                               maxWidth: 500
                           },
-                          // Make the labels less space demanding on mobile
-                          chartOptions: {
-                              xAxis: {
-                                  labels: {
-                                      formatter: function () {
-                                          return this.value.charAt(0);
-                                      }
-                                  }
-                              },
-                              yAxis: {
-                                  labels: {
-                                      align: 'left',
-                                      x: 0,
-                                      y: -2
-                                  },
-                                  title: {
-                                      text: ''
-                                  }
-                              }
-                          }
                       }]
                   }
                 
@@ -182,75 +162,3 @@ ngOnDestroy():void{
     
   }
 }
-
-/*
-
-                Highcharts.stockChart('container'+SELF.data.id, {
-                    chart: {
-                        type: 'areaspline',
-                        events: {
-                            load: function () {
-                
-                                // set up the updating of the chart each second
-                                var series = this.series[0];
-                                setInterval(function () {
-                                    var x = (new Date()).getTime(), // current time
-                                        y = Math.round(Math.random() * 100);
-                                    series.addPoint([x, y], true, true);
-                                }, 1000);
-                            }
-                        }
-                    },
-
-                    rangeSelector: {
-                        selected: 1
-                    },
-
-                    title: {
-                        text: 'AAPL Stock Price'
-                    },
-
-                    yAxis: {
-                        reversed: true,
-                        showFirstLabel: false,
-                        showLastLabel: true
-                    },
-
-                    series: [{
-                        name: 'AAPL Stock Price',
-                        data: CHART_DATA,
-                        threshold: null,
-                        fillColor: {
-                            linearGradient: {
-                                x1: 0,
-                                y1: 1,
-                                x2: 0,
-                                y2: 0
-                            },
-                            stops: [
-                                [0, Highcharts.getOptions().colors[0]],
-                                [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                            ]
-                        },
-                        tooltip: {
-                            valueDecimals: 2
-                        }
-                    }],
-                    responsive: {
-                    rules: [{
-                        condition: {
-                            maxWidth: 500,
-                            // minWidth:500
-                        },
-                        chartOptions: {
-                            subtitle: {
-                                text: null
-                            },
-                            navigator: {
-                                enabled: true
-                            }
-                        }
-                    }]
-                }
-                });
-*/

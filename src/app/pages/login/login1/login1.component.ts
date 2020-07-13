@@ -11,5 +11,8 @@ export class Login1Component implements OnInit {
 
   ngOnInit(): void {
   }
-
+  login(){
+    console.log('login to site');
+    
+  }
 }

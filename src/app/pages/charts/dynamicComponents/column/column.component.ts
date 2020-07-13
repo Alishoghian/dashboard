@@ -53,9 +53,37 @@ addChart(el:HTMLElement){
           xAxis: {
               categories: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']
           },
-          credits: {
-              enabled: false
-          },
+          
+      plotOptions: {
+        series: {
+          point: {
+            events: {
+                mouseOver: function () {
+                  this.graphic.attr({fill:'#aaa'});
+
+                },
+                mouseOut: function (e) {
+                    console.log(e);
+                    
+                    if (e.target.y <= 9 ){        
+                        e.target.color='#55BF3B'
+                    }
+                    else if (e.target.y > 10  &&  e.target.y <= 15){
+                        e.target.color= '#DF5353'
+                    }
+                    else if(e.target.y > 15){
+                        e.target.color='#DDDF0D'
+                    }
+                }
+            }
+        },
+          borderWidth: 1,
+        //   dataLabels: {
+        //     enabled: true,
+        //     format: '{point.y:.1f}'
+        //   }
+        }
+      },
           series: [{ 
               name: 'l1',
               data: [15, 7, 5, 4, 17, 9],
@@ -152,8 +180,8 @@ redrawColumns(chart){
         e.graphic.attr({fill:'#DDDF0D'});
       }
 
-  }); 
-  $(chart.series[2].data).each(function(i,e){
+     }); 
+    $(chart.series[2].data).each(function(i,e){
         
     if (e.y <= 9 ){        
         e.graphic.attr({fill:'#55BF3B'});
@@ -165,19 +193,20 @@ redrawColumns(chart){
       e.graphic.attr({fill:'#DDDF0D'});
     }
 
-}); $(chart.series[1].data).each(function(i,e){
-        
-    if (e.y <= 9 ){        
-        e.graphic.attr({fill:'#55BF3B'});
-    }
-    else if (e.y > 10  &&  e.y <= 15){
-        e.graphic.attr({fill: '#DF5353'});
-    }
-    else if(e.y > 15){
-      e.graphic.attr({fill:'#DDDF0D'});
-    }
+    });
+    $(chart.series[1].data).each(function(i,e){
+            
+        if (e.y <= 9 ){        
+            e.graphic.attr({fill:'#55BF3B'});
+        }
+        else if (e.y > 10  &&  e.y <= 15){
+            e.graphic.attr({fill: '#DF5353'});
+        }
+        else if(e.y > 15){
+        e.graphic.attr({fill:'#DDDF0D'});
+        }
 
-});
+    });
 }
 
 }

@@ -52,17 +52,17 @@ ngOnDestroy():void{
             this.addChart(el)
             
             setTimeout(() => {
-                  var series = this.chart.series[0];
              this.interval=setInterval( ()=> {
+                  var series = this.chart?.series[0];
                  var x = (new Date()).getTime(), // current time
                      y = Math.round(Math.random() * 100);
                  series.addPoint([x , y]);
              }, 2385);
                 
-            }, 50);
-         }, 50);
-     }
-    },50)
+            }, 150);
+        }, 50);
+    }
+   },80)
      
    }
    addChart(el:HTMLElement){
@@ -136,26 +136,6 @@ ngOnDestroy():void{
                            condition: {
                                maxWidth: 500
                            },
-                           // Make the labels less space demanding on mobile
-                           chartOptions: {
-                               xAxis: {
-                                   labels: {
-                                       formatter: function () {
-                                           return this.value.charAt(0);
-                                       }
-                                   }
-                               },
-                               yAxis: {
-                                   labels: {
-                                       align: 'left',
-                                       x: 0,
-                                       y: -2
-                                   },
-                                   title: {
-                                       text: ''
-                                   }
-                               }
-                           }
                        }]
                    }
                  
