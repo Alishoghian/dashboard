@@ -1,6 +1,6 @@
-demo https://alishoghian.github.io/Ang_SSR/
+demo https://alishoghian.github.io/dashboard/
 
-# Angular SSR application
+# Angular Web application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
